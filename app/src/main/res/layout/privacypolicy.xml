@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" MICE - 개인정보처리방침"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2px"
+        android:layout_marginTop="81dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="394dp"
+        android:layout_height="621dp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <LinearLayout
+            android:layout_width="384dp"
+            android:layout_height="606dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="1. 개인정보의 처리 목적\n\n MICE는 다음의 목적을 위하여\n개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 \n이용하지 않습니다.\n\n- 이용자의 문의내용 확인, 이메일 회신 목적 등"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="360dp"
+                android:layout_height="190dp"
+                android:layout_marginTop="50dp"
+                android:text="2. 개인정보의 처리 및 보유 기간\n\n1) MICE 는 정보 주체로 부터\n개인정보를 수집할 때 동의 받은 개인정보 보유\n이용기간 또는 법령에 따른 개인정보 보유,\n이용기간 내에서 개인정보를 처리 및 보유 합니다.\n\n2) 구체적인 개인정보 보유 기간은 다음과 같습니다.
+\n\n- 문의사항 : 문의 후 회신 기준으로\nㅤㅤㅤㅤㅤ2년 안으로 비정기적으로 파기"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="368dp"
+                android:layout_height="228dp"
+                android:layout_marginTop="50dp"
+                android:text="3. 개인정보의 제3자 제공에 관한 사항\n\n
+
+1) MICE 는 정보주체의 동의,\n법률의 특별한 규정등 개인정보 보호법 제 17조 및 18조에 해당하는 경우에만 개인정보를 제 3자에게 제공합니다.\n\n
+
+2) MICE 는 다음과 같이\n개인정보를 제 3자에게 제공하고 있습니다.\n
+
+- 개인정보를 제공받는 자 : 없음\n
+
+- 제공받는 자의 개인정보 이용목적 : 없음\n
+
+- 제공받는 자의 보유, 이용기간 : 없음\n
+
+- 제공받는 자의 제품별 개인정보처리방침 : 없음"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="372dp"
+                android:layout_height="299dp"
+                android:layout_marginTop="50dp"
+                android:text="4. 개인정보처리 위탁\n
+① MICE 는 원활한\n개인정보 업무처리를 위하여 다음과 같이 \n개인정보 처리업무를 위탁하고 있습니다.\n
+
+1. &lt;위탁없음.&gt;\n
+- 위탁받는 자 (수탁자) : 없음.\n
+- 위탁하는 업무의 내용 : 없음.\n
+- 위탁기간 : 없음.\n\n
+② MICE 은(는) 위탁계약 체결시 개인정보 보호법 제25조에 따라 위탁업무 수행목적 외
+개인정보 처리금지, 기술적․관리적 보호조치, 재위탁 제한, 수탁자에 대한 관리․감독, 손해배상 등 책임에 관한 사항을 계약서 등 문서에 명시하고, 수탁자가 개인정보를 안전하게 처리하는지를 감독하고 있습니다.\n\n
+③ 위탁업무의 내용이나 수탁자가 변경될 경우에는 지체없이 본 개인정보 처리방침을 통하여 공개하도록 하겠습니다."
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="365dp"
+                android:layout_height="182dp"
+                android:layout_marginTop="50dp"
+                android:text="5. 정보주체와 법정대리인의 권리·의무 및\n 그 행사방법이용자는 개인정보주체로써\n다음과 같은 권리를 행사할 수 있습니다.\n
+① 정보주체는 MICE 에 대해\n언제든지 다음 각 호의 개인정보 보호 관련 권리를\n행사할 수 있습니다.\n
+1. 문의 이메일 확인 요구\n
+2. 문의내역 확인 요구\n
+3. 삭제요구"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="369dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="50dp"
+                android:text="6. 처리하는 개인정보의 항목 작성\n
+① MICE 은(는)\n다음의 개인정보 항목을 처리하고 있습니다.\n
+- 필수항목 : 이메일\n
+- 선택항목 : 없음
+"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="369dp"
+                android:layout_height="265dp"
+                android:layout_marginTop="50dp"
+                android:text="7. 개인정보의 파기\n
+MICE 는 원칙적으로 개인정보 처리목적이 달성된 경우에는\n지체없이 해당 개인정보를 파기합니다.\n파기의 절차, 기한 및 방법은 다음과 같습니다.\n\n
+-파기절차
+이용자가 입력한 정보는 목적 달성 후 2년 안으로 비정기적으로 삭제됩니다.\n이 때, 이메일함에 있는 개인정보는 법률에 의한 경우가 아니고서는 다른 목적으로 이용되지 않습니다.\n
+-파기기한
+이메일 문의 후 회신 기준으로 2년 안으로\n비정기적으로 삭제됩니다.\n만약 문의하신 분이 요청하실 경우\n확인 즉시 바로 삭제합니다. "
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="79dp"
+                android:layout_marginTop="50dp"
+                android:text="8.개인정보 자동 수집 장치의 설치•운영 및 거부에 관한 사항\nMICE 는 정보주체의 이용정보를\n저장하고 수시로 불러오는 '쿠키'를 사용하지 않습니다."
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="370dp"
+                android:layout_height="179dp"
+                android:layout_marginTop="50dp"
+                android:text="9. 개인정보 보호책임자 작성\n
+① MICE 는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.\n\n\n
+▶ 개인정보 보호책임자\n
+Murphy (이메일 : 다혜뀨잉)"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="369dp"
+                android:layout_height="101dp"
+                android:layout_marginTop="50dp"
+                android:text="10. 개인정보 처리방침 변경
+①이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 play스토어 설치 설명란을 통하여 공지할 것 입니다."
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="346dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="50dp"
+                android:text="2021.05.25 최종 업데이트 되었습니다."
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

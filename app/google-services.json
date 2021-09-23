@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1091883488351",
+    "firebase_url": "https://miceproject-c6bbe-default-rtdb.firebaseio.com",
+    "project_id": "miceproject-c6bbe",
+    "storage_bucket": "miceproject-c6bbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091883488351:android:3771de849789964a28b7ea",
+        "android_client_info": {
+          "package_name": "com.makguksu.mice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091883488351-2tu9v8309apnh6jkebhjqhpbo5bhqv0a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.makguksu.mice",
+            "certificate_hash": "a92e3d65a0fac5931b073a91509965d3d3ccb02d"
+          }
+        },
+        {
+          "client_id": "1091883488351-vkudclka980s3l704b2bc3nj1h89g2nc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjKKhHr-Bc6KmJkoO9vxS27CwVQEDvoPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091883488351-vkudclka980s3l704b2bc3nj1h89g2nc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

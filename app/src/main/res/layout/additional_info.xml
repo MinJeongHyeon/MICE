@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancle6"
+        android:layout_width="48dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/borderline"
+        android:drawableLeft="@drawable/icon_cancle"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/view6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView24"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="414dp"
+        android:layout_height="5px"
+        android:layout_marginBottom="668dp"
+        android:background="#373535"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="추가정보"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/view6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="409dp"
+        android:layout_height="465dp"
+        android:layout_marginBottom="187dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view6">
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="226dp"
+            android:text="Q1. 손에 땀이 많은 편이다"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView29">
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="62dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton11"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:text="그렇다" />
+
+                <RadioButton
+                    android:id="@+id/radioButton12"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="아니다" />
+
+                <RadioButton
+                    android:id="@+id/radioButton13"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="모르겠다" />
+            </LinearLayout>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="38dp"
+            android:text="Q2. 손목터널증후군이 있거나 마우스 사용시 손목이 아프다"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup3"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30">
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="62dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton21"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:text="그렇다" />
+
+                <RadioButton
+                    android:id="@+id/radioButton22"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="아니다" />
+
+                <RadioButton
+                    android:id="@+id/radioButton23"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="모르겠다" />
+            </LinearLayout>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="215dp"
+            android:text="Q3. DPI를 수시로 변경한다 "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup4"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView31">
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="62dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton31"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:text="그렇다" />
+
+                <RadioButton
+                    android:id="@+id/radioButton32"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="아니다" />
+
+                <RadioButton
+                    android:id="@+id/radioButton33"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:text="모르겠다" />
+            </LinearLayout>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="완료"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
