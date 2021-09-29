@@ -1,5 +1,6 @@
 package com.makguksu.mice;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -28,11 +29,13 @@ public class Camera2 extends AppCompatActivity implements View.OnTouchListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera2);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         handImage = (ImageView) findViewById(R.id.handImage);
-        drag1 = (ImageView)findViewById(R.id.drag1);
-        drag1.setOnTouchListener(this);
-        drag2 = (ImageView)findViewById(R.id.drag2);
-        drag2.setOnTouchListener(this);
+//        drag1 = (ImageView)findViewById(R.id.drag1);
+//        drag1.setOnTouchListener(this);
+//        drag2 = (ImageView)findViewById(R.id.drag2);
+//        drag2.setOnTouchListener(this);
 
         try {
             String path = "/storage/emulated/0/DCIM/MICE/handImage.png";

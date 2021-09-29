@@ -5,15 +5,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Camera"
-        android:layout_width="205dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="160dp"
-        android:background="@drawable/button_backgound"
-        android:paddingLeft="45dp"
-        android:paddingRight="50dp"
-        android:text="카메라"
+    <TextView
+        android:id="@+id/recom_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="71dp"
+        android:layout_marginBottom="8dp"
+        android:text="MICE"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/recom_constraintLayout5"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="43dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recom_constraintLayout5"
+        android:layout_width="413dp"
+        android:layout_height="404dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recom_textView">
+
+        <TextView
+            android:id="@+id/recom_textView4"
+            android:layout_width="276dp"
+            android:layout_height="44dp"
+            android:text="당신에게 맞는 마우스를"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recom_textView6" />
+
+        <TextView
+            android:id="@+id/recom_textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지금 찾아보세요"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recom_textView4" />
+
+        <TextView
+            android:id="@+id/recom_textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginEnd="154dp"
+            android:text="님,"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toTopOf="@+id/recom_textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/recom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37dp"
+            android:text="시작"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recom_textView7" />
+
+        <TextView
+            android:id="@+id/recom_textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="166dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginEnd="10dp"
+            android:text="Null"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toTopOf="@+id/recom_textView4"
+            app:layout_constraintEnd_toStartOf="@+id/recom_textView6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

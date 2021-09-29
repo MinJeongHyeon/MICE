@@ -19,12 +19,12 @@ public class RecommendationPage extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.recommendationpage,container,false);
-        Button Camera = (androidx.appcompat.widget.AppCompatButton) viewGroup.findViewById(R.id.Camera);
+        Button recom_button = (Button) viewGroup.findViewById(R.id.recom_button);
 
-        Camera.setOnClickListener(new View.OnClickListener() {
+        recom_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), Camera.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), Survey_input.class);
                 startActivity(intent);
             }
         });

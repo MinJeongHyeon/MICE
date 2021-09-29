@@ -8,19 +8,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MeasureTheSize extends AppCompatActivity {
+public class Survey_grip extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.measure_the_size);
+        setContentView(R.layout.survey_grip);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        Button goToGrip = (Button)findViewById(R.id.goToGrip);
-        goToGrip.setOnClickListener(new View.OnClickListener() {
+        Button goToSurvey = (Button)findViewById(R.id.goToSurvey);
+        goToSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplication().getApplicationContext(), Survey_grip.class);
+                Intent intent = new Intent(getApplication().getApplicationContext(), Survey.class);
                 startActivity(intent);
             }
         });

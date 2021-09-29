@@ -35,7 +35,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MICE">
-        <activity android:name=".MeasureTheSize"></activity>
+        <activity android:name=".Survey_grip"></activity>
+        <activity android:name=".Survey_input" />
+        <activity android:name=".Survey" />
+        <activity android:name=".MeasureTheSize" />
         <activity android:name=".Camera2" />
         <activity
             android:name=".Camera"

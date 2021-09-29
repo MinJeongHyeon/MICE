@@ -1,9 +1,12 @@
 package com.makguksu.mice;
 
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -52,6 +55,7 @@ public class Camera extends AppCompatActivity
     private static final String TAG = "opencv";
 
     public native void ImageProcessing(long matAddrInput, long matAddrOutput);
+    public native void ImageCropping(long matAddrInput);
 
     private final Semaphore writeLock = new Semaphore(1);
 
@@ -75,6 +79,8 @@ public class Camera extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         m_CameraView = (CameraBridgeViewBase)findViewById(R.id.activity_surface_view);
         m_CameraView.setVisibility(SurfaceView.VISIBLE);
@@ -92,6 +98,7 @@ public class Camera extends AppCompatActivity
                     String imageName = "handImage.png";
                     File file = new File(path, imageName);
                     String filename = file.toString();
+                    ImageCropping(matInput.getNativeObjAddr());
                     Imgproc.cvtColor(matInput, matInput, Imgproc.COLOR_BGR2RGB, 4);
                     boolean ret  = Imgcodecs.imwrite( filename, matInput);
                     if ( ret ) Log.d(TAG, "SUCCESS");
