@@ -83,12 +83,13 @@ public class Camera extends AppCompatActivity
 
         Button capture = (Button)findViewById(R.id.capture);
         capture.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 try {
                     getWriteLock();
-                    File path = new File("/storage/emulated/0/DCIM/Images/");
+                    File path = new File("/storage/emulated/0/DCIM/MICE/");
                     path.mkdirs();
-                    String imageName = getTime() + ".png";
+                    String imageName = "handImage.png";
                     File file = new File(path, imageName);
                     String filename = file.toString();
                     Imgproc.cvtColor(matInput, matInput, Imgproc.COLOR_BGR2RGB, 4);
@@ -102,6 +103,8 @@ public class Camera extends AppCompatActivity
                     e.printStackTrace();
                 }
                 releaseWriteLock();
+                Intent intent = new Intent(getApplication().getApplicationContext(), Camera2.class);
+                startActivity(intent);
             }
         });
 
