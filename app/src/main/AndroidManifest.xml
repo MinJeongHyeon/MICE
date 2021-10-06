@@ -35,7 +35,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MICE">
-        <activity android:name=".Survey_grip"></activity>
+        <activity android:name=".RecyclerViewHolder"></activity>
+        <activity android:name=".RecyclerAdapter" />
+        <activity android:name=".RecommendResult" />
+        <activity android:name=".Survey_grip" />
         <activity android:name=".Survey_input" />
         <activity android:name=".Survey" />
         <activity android:name=".MeasureTheSize" />

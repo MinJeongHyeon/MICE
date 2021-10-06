@@ -29,9 +29,10 @@
 
         <TextView
             android:id="@+id/recom_textView4"
-            android:layout_width="276dp"
+            android:layout_width="300dp"
             android:layout_height="44dp"
             android:text="당신에게 맞는 마우스를"
+            android:textAlignment="center"
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
