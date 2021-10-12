@@ -100,3 +100,16 @@ extern "C" JNIEXPORT void JNICALL
         rectangle(dst, Point(r.x, r.y), Point(r.x+r.width, r.y+r.height), color2, 4);
    }
 }
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_makguksu_mice_Camera_ImageExpansion(
+        JNIEnv* env, jobject thiz,
+        jlong mat_addr_input) {
+    Mat &src = *(Mat *) mat_addr_input;
+
+    int w = src.size().width;
+    int h = src.size().height;
+
+    resize(src, src, Size(w*3, h*3));
+
+}

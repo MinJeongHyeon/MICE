@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -32,10 +33,11 @@ public class Camera2 extends AppCompatActivity implements View.OnTouchListener {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         handImage = (ImageView) findViewById(R.id.handImage);
-//        drag1 = (ImageView)findViewById(R.id.drag1);
-//        drag1.setOnTouchListener(this);
-//        drag2 = (ImageView)findViewById(R.id.drag2);
-//        drag2.setOnTouchListener(this);
+
+        drag1 = (ImageView)findViewById(R.id.drag1);
+        drag1.setOnTouchListener(this);
+        drag2 = (ImageView)findViewById(R.id.drag2);
+        drag2.setOnTouchListener(this);
 
         try {
             String path = "/storage/emulated/0/DCIM/MICE/handImage.png";
@@ -49,6 +51,21 @@ public class Camera2 extends AppCompatActivity implements View.OnTouchListener {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplication().getApplicationContext(), MeasureTheSize.class);
+
+                float x = drag1.getX()-drag2.getX();
+                if (x<0) x *= -1;
+                float y= drag1.getY()-drag2.getY();
+                if (y<0) y *= -1;
+                double cardLength = 0;
+                if (x>=y) cardLength =Math.sqrt((x*x)-(y*y));
+                if (y>x) cardLength =Math.sqrt((x*x)-(y*y));
+                double mmPerValue = 54/cardLength; // 1 좌표값 당 mm
+
+                double handHorizon = handImage.getWidth()* mmPerValue;
+                double handVertical = handImage.getHeight()* mmPerValue;
+
+                intent.putExtra("X", handHorizon);
+                intent.putExtra("Y", handVertical);
                 startActivity(intent);
             }
         });

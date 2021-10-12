@@ -56,6 +56,7 @@ public class Camera extends AppCompatActivity
 
     public native void ImageProcessing(long matAddrInput, long matAddrOutput);
     public native void ImageCropping(long matAddrInput);
+    public native void ImageExpansion(long matAddrInput);
 
     private final Semaphore writeLock = new Semaphore(1);
 
@@ -100,6 +101,7 @@ public class Camera extends AppCompatActivity
                     String filename = file.toString();
                     ImageCropping(matInput.getNativeObjAddr());
                     Imgproc.cvtColor(matInput, matInput, Imgproc.COLOR_BGR2RGB, 4);
+                    ImageExpansion(matInput.getNativeObjAddr());
                     boolean ret  = Imgcodecs.imwrite( filename, matInput);
                     if ( ret ) Log.d(TAG, "SUCCESS");
                     else Log.d(TAG, "FAIL");

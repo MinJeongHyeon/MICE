@@ -45,37 +45,39 @@
 
     <ImageView
         android:id="@+id/handImage"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="104dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="150dp"
+        android:scaleType="fitCenter"
         app:layout_constraintTop_toBottomOf="@+id/view2"
+        app:layout_constraintBottom_toTopOf="@+id/goToMeasure"
         />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/drag1"-->
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        app:srcCompat="?android:attr/textCursorDrawable"-->
-<!--        tools:layout_editor_absoluteX="234dp"-->
-<!--        tools:layout_editor_absoluteY="473dp" />-->
+    <ImageView
+        android:id="@+id/drag1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/pointer"
+        android:layout_marginLeft="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"/>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/drag2"-->
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        app:srcCompat="?android:attr/textCursorDrawable"-->
-<!--        tools:layout_editor_absoluteX="108dp"-->
-<!--        tools:layout_editor_absoluteY="495dp" />-->
+    <ImageView
+        android:id="@+id/drag2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/pointer"
+        android:layout_marginLeft="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"/>
 
     <Button
         android:id="@+id/goToMeasure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="121dp"
         android:layout_marginBottom="69dp"
         android:background="@drawable/button_backgound"
         android:text="다음"
