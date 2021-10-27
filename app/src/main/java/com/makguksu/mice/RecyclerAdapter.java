@@ -33,7 +33,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         holder.mouse_name.setText(data.get(position).get("mouse_name").toString());
-        holder.price.setText(data.get(position).get("price").toString());
+        holder.price.setText(data.get(position).get("price").toString()+"원");
+        holder.mouse_height.setText("높이:"+data.get(position).get("height").toString());
+        holder.mouse_width.setText("가로:"+data.get(position).get("width").toString());
+        holder.mouse_length.setText("세로:"+data.get(position).get("length").toString());
+        holder.mouse_weight.setText("무게:"+data.get(position).get("weight").toString());
     }
 
     @Override

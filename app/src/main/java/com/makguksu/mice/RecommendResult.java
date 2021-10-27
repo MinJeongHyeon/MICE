@@ -34,6 +34,11 @@ public class RecommendResult extends AppCompatActivity {
         setContentView(R.layout.recommended_mouse);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+        double horizon = getIntent().getDoubleExtra("horizon", 0);
+        double vertical = getIntent().getDoubleExtra("vertical", 0);
+        String grip = getIntent().getStringExtra("grip");
+
         dataList = new ArrayList<>();
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference mouseRef = db.collection("mouse");
@@ -42,8 +47,42 @@ public class RecommendResult extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()){
-                        if(parseInt(document.getData().get("price").toString()) < 30000){
-                            dataList.add(document.getData());
+                        if(grip.equals("Palm")) {
+                            String heightSt = document.getData().get("height").toString();
+                            heightSt = heightSt.replace("mm", "");
+                            double height = Double.parseDouble(heightSt);
+                            String weightSt = document.getData().get("weight").toString();
+                            if (weightSt.equals("")) weightSt = "0g";
+                            weightSt = weightSt.replace("g", "");
+                            double weight = Double.parseDouble(weightSt);
+
+                            if (height >= 40 && weight >= 85) {
+                                dataList.add(document.getData());
+                            }
+                        }
+                        if(grip.equals("Claw")) {
+                            String heightSt = document.getData().get("height").toString();
+                            heightSt = heightSt.replace("mm", "");
+                            double height = Double.parseDouble(heightSt);
+                            String weightSt = document.getData().get("weight").toString();
+                            if (weightSt.equals("")) weightSt = "0g";
+                            weightSt = weightSt.replace("g", "");
+                            double weight = Double.parseDouble(weightSt);
+                            if (height <= 40 && height >= 30 && weight <= 104 && weight >= 80) {
+                                dataList.add(document.getData());
+                            }
+                        }
+                        if(grip.equals("Finger")) {
+                            String heightSt = document.getData().get("height").toString();
+                            heightSt = heightSt.replace("mm", "");
+                            double height = Double.parseDouble(heightSt);
+                            String weightSt = document.getData().get("weight").toString();
+                            if (weightSt.equals("")) weightSt = "0g";
+                            weightSt = weightSt.replace("g", "");
+                            double weight = Double.parseDouble(weightSt);
+                            if (height <= 40 && weight <= 95 && weight != 0) {
+                                dataList.add(document.getData());
+                            }
                         }
                     }
                     RecyclerViewCreate();

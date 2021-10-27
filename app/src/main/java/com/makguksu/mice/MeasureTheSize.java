@@ -13,6 +13,8 @@ public class MeasureTheSize extends AppCompatActivity {
 
     TextView vertical;
     TextView horizon;
+    double x = 0;
+    double y = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +22,13 @@ public class MeasureTheSize extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        double x = getIntent().getDoubleExtra("X", 0);
-        double y = getIntent().getDoubleExtra("Y", 0);
+        x = getIntent().getDoubleExtra("X", 0);
+        y = getIntent().getDoubleExtra("Y", 0);
+        x = Math.round(x);
+        y = Math.round(y);
+
         vertical = findViewById(R.id.verticalLength);
         horizon = findViewById(R.id.horizontalLength);
-
         vertical.setText(Double.toString(y));
         horizon.setText(Double.toString(x));
 
@@ -35,6 +39,9 @@ public class MeasureTheSize extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplication().getApplicationContext(), Survey_grip.class);
+                intent.putExtra("horizon", x);
+                intent.putExtra("vertical", y);
+
                 startActivity(intent);
             }
         });
