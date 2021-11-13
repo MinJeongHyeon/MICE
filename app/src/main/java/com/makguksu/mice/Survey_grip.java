@@ -1,12 +1,15 @@
 package com.makguksu.mice;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -22,6 +25,38 @@ public class Survey_grip extends AppCompatActivity {
         Intent intent = new Intent(getApplication().getApplicationContext(), Survey_grip.class);
 
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioGrip);
+
+        Button cancel = (Button)findViewById(R.id.cancle);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder ad = new AlertDialog.Builder(Survey_grip.this);
+                ad.setTitle("취소");
+                ad.setMessage("홈으로 돌아가시겠습니까?");
+
+                final EditText et = new EditText(Survey_grip.this);
+                ad.setView(et);
+
+                ad.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                ad.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplication().getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+                ad.show();
+
+
+            }
+        });
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

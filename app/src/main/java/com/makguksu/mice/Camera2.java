@@ -1,8 +1,10 @@
 package com.makguksu.mice;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import org.opencv.imgcodecs.Imgcodecs;
@@ -40,11 +43,78 @@ public class Camera2 extends AppCompatActivity implements View.OnTouchListener {
         drag2.setOnTouchListener(this);
 
         try {
-            String path = "/storage/emulated/0/DCIM/MICE/handImage.png";
+            String path = getExternalFilesDir(null)+"/handImage.png";
             handImage.setImageURI(Uri.parse(path));
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        Button recapture = (Button)findViewById(R.id.recapture);
+        recapture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder ad = new AlertDialog.Builder(Camera2.this);
+                ad.setTitle("재촬영");
+                ad.setMessage("재촬영 하시겠습니까? (현재 촬영한 이미지는 삭제됩니다.)");
+
+                final EditText et = new EditText(Camera2.this);
+                ad.setView(et);
+
+                ad.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplication().getApplicationContext(), Camera.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                ad.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+                ad.show();
+
+
+            }
+        });
+
+        Button cancel = (Button)findViewById(R.id.cancle);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder ad = new AlertDialog.Builder(Camera2.this);
+                ad.setTitle("취소");
+                ad.setMessage("홈으로 돌아가시겠습니까?");
+
+                final EditText et = new EditText(Camera2.this);
+                ad.setView(et);
+
+                ad.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                ad.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplication().getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                ad.show();
+
+
+            }
+        });
 
         Button goToMeasure = (Button)findViewById(R.id.goToMeasure);
         goToMeasure.setOnClickListener(new View.OnClickListener() {

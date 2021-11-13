@@ -17,13 +17,23 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"/>
+
+    <Button
         android:id="@+id/cancle"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="92dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/borderline"
+        android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/icon_cancle"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -49,10 +59,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="150dp"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/progress"
         app:layout_constraintBottom_toTopOf="@+id/goToMeasure"
         />
 
@@ -78,11 +88,19 @@
         android:id="@+id/goToMeasure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="69dp"
         android:background="@drawable/button_backgound"
         android:text="다음"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/handImage" />
+
+    <Button
+        android:id="@+id/recapture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="재촬영"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goToMeasure"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,13 +17,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/cancle"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="92dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/borderline"
+        android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/icon_cancle"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -43,6 +43,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"/>
+
     <Button
         android:id="@+id/camera"
         android:layout_width="wrap_content"
@@ -50,18 +60,17 @@
         android:layout_marginTop="121dp"
         android:layout_marginBottom="69dp"
         android:text="카메라"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintTop_toBottomOf="@+id/progress" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="382dp"
+        android:layout_marginTop="100dp"
         android:text="직접입력"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -94,7 +95,8 @@ public class Camera extends AppCompatActivity
             public void onClick(View v) {
                 try {
                     getWriteLock();
-                    File path = new File("/storage/emulated/0/DCIM/MICE/");
+
+                    File path = new File(getExternalFilesDir(null)+"/");
                     path.mkdirs();
                     String imageName = "handImage.png";
                     File file = new File(path, imageName);

@@ -2,11 +2,17 @@ package com.makguksu.mice;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,6 +41,48 @@ public class RecommendResult extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+        Button cancel = (Button)findViewById(R.id.cancle);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder ad = new AlertDialog.Builder(RecommendResult.this);
+                ad.setTitle("취소");
+                ad.setMessage("홈으로 돌아가시겠습니까?");
+
+                final EditText et = new EditText(RecommendResult.this);
+                ad.setView(et);
+
+                ad.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                ad.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplication().getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                ad.show();
+
+
+            }
+        });
+
+        Button goToFirst = (Button)findViewById(R.id.goToFirst);
+        goToFirst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication().getApplicationContext(), Survey_input.class);
+                startActivity(intent);
+            }
+        });
+
         double horizon = getIntent().getDoubleExtra("horizon", 0);
         double vertical = getIntent().getDoubleExtra("vertical", 0);
         String grip = getIntent().getStringExtra("grip");
@@ -47,19 +95,27 @@ public class RecommendResult extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()){
+                        Map<String, Object> tempMap = document.getData();
+                        tempMap.put("point", "0");
+                        dataList.add(tempMap);
+                    }
+
+                    for (Map<String, Object> listMap : dataList){
                         if(grip.equals("Palm")) {
-                            String heightSt = document.getData().get("height").toString();
+                            String heightSt = listMap.get("height").toString();
                             heightSt = heightSt.replace("mm", "");
                             double height = Double.parseDouble(heightSt);
-                            String weightSt = document.getData().get("weight").toString();
+                            String weightSt = listMap.get("weight").toString();
                             if (weightSt.equals("")) weightSt = "0g";
                             weightSt = weightSt.replace("g", "");
                             double weight = Double.parseDouble(weightSt);
 
                             if (height >= 40 && weight >= 85) {
-                                dataList.add(document.getData());
+                                int point = Integer.parseInt(listMap.get("point").toString());
+                                point += 100;
+                                listMap.put("point", point);
                             }
-                        }
+                        }/*
                         if(grip.equals("Claw")) {
                             String heightSt = document.getData().get("height").toString();
                             heightSt = heightSt.replace("mm", "");
@@ -83,7 +139,7 @@ public class RecommendResult extends AppCompatActivity {
                             if (height <= 40 && weight <= 95 && weight != 0) {
                                 dataList.add(document.getData());
                             }
-                        }
+                        }*/
                     }
                     RecyclerViewCreate();
                 }
