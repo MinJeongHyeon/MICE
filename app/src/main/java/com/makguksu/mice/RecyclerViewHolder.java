@@ -3,9 +3,11 @@ package com.makguksu.mice;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RecyclerViewHolder extends RecyclerView.ViewHolder{
+    ImageView mouse_image;
     TextView mouse_name;
     TextView price;
     TextView mouse_height;
@@ -15,6 +17,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
+        mouse_image = itemView.findViewById(R.id.mouse_image);
         mouse_name= itemView.findViewById(R.id.mouse_name);
         price= itemView.findViewById(R.id.price);
         mouse_height= itemView.findViewById(R.id.mouse_height);

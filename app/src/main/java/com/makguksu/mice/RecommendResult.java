@@ -20,8 +20,12 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +36,7 @@ public class RecommendResult extends AppCompatActivity {
     private RecyclerAdapter recyclerAdapter;
     private RecyclerView recyclerView;
     private List<Map<String, Object>> dataList;
-
+    private FirebaseStorage storage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,6 +44,7 @@ public class RecommendResult extends AppCompatActivity {
         setContentView(R.layout.recommended_mouse);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
 
         Button cancel = (Button)findViewById(R.id.cancle);
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -97,50 +102,78 @@ public class RecommendResult extends AppCompatActivity {
                     for (QueryDocumentSnapshot document : task.getResult()){
                         Map<String, Object> tempMap = document.getData();
                         tempMap.put("point", "0");
+                        tempMap.put("document", document.getId());
                         dataList.add(tempMap);
                     }
 
                     for (Map<String, Object> listMap : dataList){
-                        if(grip.equals("Palm")) {
-                            String heightSt = listMap.get("height").toString();
-                            heightSt = heightSt.replace("mm", "");
-                            double height = Double.parseDouble(heightSt);
-                            String weightSt = listMap.get("weight").toString();
-                            if (weightSt.equals("")) weightSt = "0g";
-                            weightSt = weightSt.replace("g", "");
-                            double weight = Double.parseDouble(weightSt);
+                        String heightSt = listMap.get("height").toString();
+                        if (heightSt.equals("")) heightSt = "0mm";
+                        heightSt = heightSt.replace("mm", "");
+                        double height = Double.parseDouble(heightSt);
 
-                            if (height >= 40 && weight >= 85) {
-                                int point = Integer.parseInt(listMap.get("point").toString());
+                        String weightSt = listMap.get("weight").toString();
+                        if (weightSt.equals("")) weightSt = "0g";
+                        weightSt = weightSt.replace("g", "");
+                        double weight = Double.parseDouble(weightSt);
+
+                        String lengthSt = listMap.get("length").toString();
+                        if (lengthSt.equals("")) lengthSt = "0mm";
+                        lengthSt = lengthSt.replace("mm", "");
+                        double length = Double.parseDouble(lengthSt);
+
+                        int point = Integer.parseInt(listMap.get("point").toString());
+
+                        if(grip.equals("Palm")) {
+                            if(height >= 65) point -= 1000;
+                            if((3.14*2*Math.sqrt((height*height+(length/2)*(length/2))/2)/2-10>=vertical-40))
+                            {
                                 point += 100;
-                                listMap.put("point", point);
                             }
-                        }/*
+                            if (height >= 40 && weight >= 85) {
+                                point += 50;
+                            }
+                        }
                         if(grip.equals("Claw")) {
-                            String heightSt = document.getData().get("height").toString();
-                            heightSt = heightSt.replace("mm", "");
-                            double height = Double.parseDouble(heightSt);
-                            String weightSt = document.getData().get("weight").toString();
-                            if (weightSt.equals("")) weightSt = "0g";
-                            weightSt = weightSt.replace("g", "");
-                            double weight = Double.parseDouble(weightSt);
                             if (height <= 40 && height >= 30 && weight <= 104 && weight >= 80) {
-                                dataList.add(document.getData());
+                                point += 100;
                             }
                         }
                         if(grip.equals("Finger")) {
-                            String heightSt = document.getData().get("height").toString();
-                            heightSt = heightSt.replace("mm", "");
-                            double height = Double.parseDouble(heightSt);
-                            String weightSt = document.getData().get("weight").toString();
-                            if (weightSt.equals("")) weightSt = "0g";
-                            weightSt = weightSt.replace("g", "");
-                            double weight = Double.parseDouble(weightSt);
                             if (height <= 40 && weight <= 95 && weight != 0) {
-                                dataList.add(document.getData());
+                                point += 100;
                             }
-                        }*/
+                        }
+                        if(grip.equals("dk")) {
+                            if (vertical >= 190) {
+                                if (height >= 40 && weight >= 85) {
+                                    point += 100;
+                                }
+                            }
+                            if (vertical >= 180 && vertical < 190) {
+                                if (height <= 40 && height >= 30 && weight <= 104 && weight >= 80) {
+                                    point += 100;
+                                }
+                            }
+                            if (vertical < 180) {
+                                if (height <= 40 && weight <= 95 && weight != 0) {
+                                    point += 100;
+                                }
+                            }
+                        }
+
+                        listMap.put("point", point);
                     }
+
+                    Collections.sort(dataList, new Comparator<Map<String, Object>>() {
+                        @Override
+                        public int compare(Map<String, Object> o1, Map<String, Object> o2) {
+                            Integer point1 = (Integer) o1.get("point");
+                            Integer point2 = (Integer) o2.get("point");
+                            return point2.compareTo(point1);
+                        }
+                    });
+                    dataList = dataList.subList(0,3);
                     RecyclerViewCreate();
                 }
             }

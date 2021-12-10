@@ -5,13 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView111"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="8dp"
+        android:text="MICE란?"
+        android:textSize="50dp"
+       app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="410dp"
-        android:layout_height="284dp"
+    <TextView
+        android:id="@+id/textView112"
+        android:layout_width="400dp"
+        android:layout_height="44dp"
+        android:text="당신에게 맞는 마우스를"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="379dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView111" />
 
+    <TextView
+        android:id="@+id/textView113"
+        android:layout_width="400dp"
+        android:layout_height="44dp"
+        android:text="쉽고, 빠르고, 정확하게"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView112" />
+
+    <TextView
+        android:id="@+id/textView114"
+        android:layout_width="400dp"
+        android:layout_height="44dp"
+        android:text="찾아주는 모바일 앱입니다."
+        android:textAlignment="center"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView113" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
